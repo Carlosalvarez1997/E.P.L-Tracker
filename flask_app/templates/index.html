@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}" defer>
+    </script>
+    <style>
+        body{
+            background-image:url("{{ url_for('static', filename='/images/pexels-dom-le-roy-3991976.jpg') }}");
+            background-attachment:local;
+            background-size: 90%;
+        }
+
+    </style>
+    <title>EPL Points Tracker</title>
+</head>
+<body>
+    <div class="nav-bar">
+        <h1>Hello {{session.user_name}}! Welcome to E.P.L. Tracker</h1>
+        <a id = "logout" href="/users/logout">Logout</a>
+    </div>
+    <div class="wrapper">
+        <form class="searchbar" action="/home" method="post">
+            <input type="search" name="search" id="">
+            <button>Search Team </button>
+            <input type="hidden" name="id" value="{{session.user_id}}">
+        </form>
+        <div class="profile">
+            {%for team in all_teams%}
+            {%if team ==all_teams[0]%}
+                <div class="favteambanner">
+                    <p>Most Intersted in Team:</p>
+                    <img id="favteam" src="{{team.image}}" alt="Fav team"></div>
+            {%endif%}
+
+            {%endfor%}
+            <div class="userinfo">
+                <div class="pic"></div>
+                <div class="infoofUser">
+                    <p class= "name">{{session.user_name}}  </p>
+                    <p class="name">{{session.email}}</p>
+                </div>
+            </div>
+
+        </div>
+        {%for team in all_teams%}
+        <div class="firstteam">
+            <button class = "button">Click to Close</button>
+            <div class="teaminfo">
+                <p class = "info">Team Name: <a href="/team/update/{{team.id}}">{{team.name}}</a></p>
+                <p class = "info">Team Abbreviation: {{team.short_code}}</p>
+                <p class = "info">Last Match: {{team.last_played}}</p>
+                <p class = "info">Upcoming Game : {{team.upcoming}}<br> Starting on {{team.starting_at}}</p>
+                <p class = "info">No Longer Interest? Click the banner Click Here!</a></p>
+            </div>
+            <div class="teamimg"><a href="/delete/{{team.id}}"><img  src="{{team.image}}" alt="Image of Team"></a></div>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+
+</body>
+</html>
+
+<!-- Format for adding images -->
+<!-- <img src="{{ url_for('static', filename='images/img.png') }}"> -->

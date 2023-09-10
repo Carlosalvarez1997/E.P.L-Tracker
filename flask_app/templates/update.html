@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            background-image:url("{{ url_for('static', filename='/images/pexels-dom-le-roy-3991976.jpg') }}");
+            background-attachment:local;
+            background-size: 90%;
+        }
+        .team{
+            color: black;
+            border: 1px solid aliceblue;
+            margin-left: 30em;
+            margin-top: 5em;
+            width: 20em;
+            background-color: wheat;
+            padding: 2em;
+            padding-left: 7em;
+        }
+        .nav-bar{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: black;
+            opacity: .8;
+        }
+        h1{
+            color: white;
+        }
+        #logout{
+            font-size: x-large;
+            text-align: center;
+            width: 5em;
+            height: 1.2em;
+            color: green;
+            border: 1px solid beige;
+            background-color: antiquewhite;
+
+            border-radius: 50%;
+        }
+    #home{
+        font-size: x-large;
+            text-align: center;
+            width: 5em;
+            height: 1.2em;
+            color: green;
+            border: 1px solid beige;
+            background-color: antiquewhite;
+
+            border-radius: 50%;
+    }
+    .next_match{
+        margin-left: -5em;
+    }
+
+    </style>
+    <title>Update Team</title>
+</head>
+<body>
+    <div class="nav-bar">
+        <h1>Hello, Welcome to E.P.L. Points Tracker</h1>
+        <a id = "logout" href="/users/logout">Logout</a>
+        <a id = 'home' href="/home">Go home</a>
+    </div>
+    <form class="searchbar" action="/team/update/{{this_team.id}}" method="post">
+        <input type="search" name="search">
+        <input type="hidden" name = "id"value = "{{this_team.id}}">
+        <button>Search Team</button>
+
+    </form>
+
+    <div class="team">
+        <p>{{this_team.name}}</p>
+        <p>{{this_team.short_code}}</p>
+        <p>Last Match: {{this_team['last_played_at']}}</p>
+        <img src="{{this_team['image_path']}}" alt="image of team">
+        <p class = "next_match">Next Match:{{this_team.upcoming}}<br> on {{this_team.starting_at}}</p>
+    </div>
+
+</body>
+</html>
