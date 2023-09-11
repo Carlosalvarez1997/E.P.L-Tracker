@@ -44,6 +44,7 @@ def index():
         if request.method == 'POST':
             team.Team.get_team(request.form)
         all_teams = team.Team.get_all_teams_with_user()
+        # all_teams = user.User.get_all_teams_by_user_id()
         team.Team.refresh_data()
         return render_template('index.html', all_teams = all_teams)
 

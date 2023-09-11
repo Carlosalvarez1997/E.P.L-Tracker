@@ -72,6 +72,21 @@ class User:
         this_user = user_id[0]
         return this_user
 
+    # @classmethod
+    # def get_all_teams_by_user_id(cls):
+    #     data = {'id':session['user_id']}
+    #     query= """
+    #     SELECT *
+    #     FROM user
+    #     JOIN team ON team.user_id = user.id
+    #     WHERE user.id = %(id)s
+    #     ;"""
+    #     results  = connectToMySQL(cls.db).query_db(query, data)
+    #     print(results)
+
+    #     return results
+
+
 
 
 
