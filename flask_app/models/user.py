@@ -90,7 +90,6 @@ class User:
 
 
 
-
     # Update Users Models
     @classmethod
     def update_user(cls,id):

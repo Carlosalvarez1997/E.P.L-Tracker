@@ -4,7 +4,7 @@ from flask import flash, session,request
 from flask_app.models import user
 
 import requests
-
+#agaOMC0Z18MGoYFp1y8JKqdGGWliND6OydauLoJ2x56ODdjZyQoudYaoCfIV this is my api key
 
 class Team:
     db = "sample" #which database are you using for this project
@@ -121,6 +121,7 @@ class Team:
                 """
                 result = connectToMySQL(cls.db).query_db(query,data,)
                 return result
+        return flash("team not available")
 
     @classmethod
     def delete_team_from_list(cls, id):

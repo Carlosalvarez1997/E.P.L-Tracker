@@ -3,7 +3,7 @@ from flask import render_template, redirect, request, session
 from flask_app.models import user, team# import entire file, rather than class, to avoid circular imports
 
 import requests
-#agaOMC0Z18MGoYFp1y8JKqdGGWliND6OydauLoJ2x56ODdjZyQoudYaoCfIV
+
 
 # Create Users Controller
 @app.route('/')

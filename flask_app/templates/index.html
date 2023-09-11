@@ -13,7 +13,9 @@
             background-attachment:local;
             background-size: 90%;
         }
-
+        #popup{
+            color: white;
+        }
     </style>
     <title>EPL Points Tracker</title>
 </head>
@@ -24,6 +26,17 @@
     </div>
     <div class="wrapper">
         <form class="searchbar" action="/home" method="post">
+
+            {%with messages = get_flashed_messages()%}
+                {%if messages%}
+                <div id="popup">
+                    {%for message in messages%}
+                    <p>{{message}}</p>
+                    {%endfor%}
+                    <button onclick="popup.remove()">Okay</button>
+                </div>
+                {%endif%}
+                {%endwith%}
             <input type="search" name="search" id="">
             <button>Search Team </button>
             <input type="hidden" name="id" value="{{session.user_id}}">
@@ -63,6 +76,3 @@
 
 </body>
 </html>
-
-<!-- Format for adding images -->
-<!-- <img src="{{ url_for('static', filename='images/img.png') }}"> -->

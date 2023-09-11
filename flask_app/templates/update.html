@@ -65,6 +65,16 @@
         <a id = "logout" href="/users/logout">Logout</a>
         <a id = 'home' href="/home">Go home</a>
     </div>
+    {%with messages = get_flashed_messages()%}
+        {%if messages%}
+            <div id="popup">
+                {%for message in messages%}
+                <p>{{message}}</p>
+                {%endfor%}
+                <button onclick="popup.remove()">Okay</button>
+            </div>
+        {%endif%}
+    {%endwith%}
     <form class="searchbar" action="/team/update/{{this_team.id}}" method="post">
         <input type="search" name="search">
         <input type="hidden" name = "id"value = "{{this_team.id}}">
