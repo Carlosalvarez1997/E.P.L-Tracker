@@ -16,13 +16,21 @@
         #popup{
             color: white;
         }
+        #EPLBanner{
+            width: 5em;
+            height: 5em;
+
+        }
+
     </style>
     <title>EPL Points Tracker</title>
 </head>
 <body>
     <div class="nav-bar">
-        <h1>Hello {{session.user_name}}! Welcome to E.P.L. Tracker</h1>
+        <img id= "EPLBanner" src="{{ url_for('static', filename='/images/i.png') }}" alt="Premier League Banner">
+        <h1><span class = "hello">Hello {{session.user_name}}!</span> Welcome to <span class = "epl">E.P.L.</span> Tracker</h1>
         <a id = "logout" href="/users/logout">Logout</a>
+        <img id= "EPLBanner" src="{{ url_for('static', filename='/images/i.png') }}" alt="Premier League Banner">
     </div>
     <div class="wrapper">
         <form class="searchbar" action="/home" method="post">
@@ -45,13 +53,16 @@
             {%for team in all_teams%}
             {%if team ==all_teams[0]%}
                 <div class="favteambanner">
+                    <img id= "EPLBanner" src="{{ url_for('static', filename='/images/i.png') }}" alt="Premier League Banner">
                     <p>Most Intersted in Team:</p>
                     <img id="favteam" src="{{team.image}}" alt="Fav team"></div>
             {%endif%}
 
             {%endfor%}
             <div class="userinfo">
-                <div class="pic"></div>
+                <div class="pic">
+                    <img  id = "EPLBanner" src="{{ url_for('static', filename='/images/i.png') }}" alt="Premier League Banner">
+                </div>
                 <div class="infoofUser">
                     <p class= "name">{{session.user_name}}  </p>
                     <p class="name">{{session.email}}</p>

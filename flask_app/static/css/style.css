@@ -1,23 +1,29 @@
 h1{
-    color: white;
+    color: #e90052;
 }
 .nav-bar{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: black;
-    opacity: .8;
+    background-color:#ffffff;
+    opacity: 1;
+}
+.hello{
+    color: #04f5ff;
+}
+.epl{
+   color: #04f5ff;
 }
 #logout{
     font-size: x-large;
     text-align: center;
     width: 5em;
-    height: 1.2em;
-    color: green;
+    height: 1.5em;
+    color: #5f0065;
     border: 1px solid beige;
-    background-color: antiquewhite;
+    background-color:#00ff85;
 
-    border-radius: 50%;
+    border-radius: 10%;
 }
 .searchbar{
     width: 20em;
